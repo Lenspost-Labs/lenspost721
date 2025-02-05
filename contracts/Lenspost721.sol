@@ -21,4 +21,10 @@ contract Lenspost721 is ERC721Drop {
             _primarySaleRecipient
         )
     {}
+
+    /// @notice Returns the same metadata URI for all tokens
+    function tokenURI(uint256) public view virtual override returns (string memory) {
+        string memory baseURI = _getBaseURI(0);
+        return baseURI;
+    }
 }
